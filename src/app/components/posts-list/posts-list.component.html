@@ -1,0 +1,22 @@
+<div class="container">
+    <h2 fxLayoutAlign="center center">POSTS</h2>
+    <mat-card  *ngFor="let post of posts | async">
+        <div fxLayout="row" fxLayoutAlign="space-between">
+            <div>
+                <img src="https://www.iconexperience.com/_img/g_collection_png/standard/256x256/photo_landscape.png" alt="image">
+            </div>
+            <div fxLayout="column">
+            <div fxLayout="row">
+                <h4>{{post.title}} | <span id="author">Author:{{post.userId}}</span></h4> 
+                <h4 ></h4>
+            </div>
+            <div >
+                <p>{{post.body}}</p>
+            </div>
+            </div>
+        </div>
+        <div fxLayoutAlign="end">
+            <button mat-raised-button (click)="show(post.id)">See More</button>
+        </div>
+    </mat-card>
+</div>

@@ -1,0 +1,12 @@
+.container{
+    margin-top: 8rem;
+}
+h2{
+    color:#111329;
+    font-weight: bold;
+}
+button{
+    background-color: #f7a63e;
+    color: #FFFFFF;
+    width: 100%;
+}

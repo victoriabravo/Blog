@@ -1,0 +1,29 @@
+.container{
+    margin-top: 5rem;
+}
+mat-card{
+    width: 90%;
+    margin-left:2.5rem;
+    margin-bottom: 2rem;
+}
+h2{
+    color:#102A30;
+    font-weight: bold;
+    font-size: 40px;
+}
+h4{
+    color:#21444d;
+    font-weight: bolder;
+    text-transform: uppercase;
+}
+#author{
+    color:#1d6474;
+    font-weight: bolder;
+}
+img{
+    width: 90px;
+}
+button{
+    background-color: #f7a63e;
+    color: #FFFFFF;
+}

@@ -1,0 +1,75 @@
+<div class="container">
+    <div fxLayout="column">
+        <div fxLayoutAlign="center">
+            <img src="https://www.iconexperience.com/_img/g_collection_png/standard/256x256/photo_landscape.png" alt="image">
+        </div>
+        <h2 fxLayoutAlign="center">{{postDetail.title}}</h2>
+        <h3 fxLayoutAlign="center">Author:{{postDetail.userId}}</h3>
+        <div>
+            <p class="content">{{postDetail.body}}</p>
+        </div>
+        <div>
+            <h2>Comments</h2>
+            <div>
+                <mat-card *ngFor="let c of comments | async">
+                    <div fxLayout="row" fxLayoutAlign="space-between">
+                        <div>
+                            <img src="https://www.iconexperience.com/_img/g_collection_png/standard/256x256/photo_portrait.png" alt="image">
+                        </div>
+                        <div fxLayout="column">
+                            <h4>{{c.name}}</h4>
+                        <div >
+                            <p>{{c.body}}</p>
+                        </div>
+                        </div>
+                    </div>
+                </mat-card>
+                <mat-card >
+                    <div fxLayout="row" fxLayoutAlign="space-between">
+                        <div>
+                            <img src="https://www.iconexperience.com/_img/g_collection_png/standard/256x256/photo_portrait.png" alt="image">
+                        </div>
+                        <div fxLayout="column">
+                            <h4>{{title}}</h4>
+                        <div >
+                            <p>{{body}}</p>
+                        </div>
+                        </div>
+                    </div>
+                </mat-card>
+            </div>
+        </div>
+        <div>
+            <h2>Add a comment:</h2>
+            <form [formGroup]="messageForm" (ngSubmit)="post(messageForm.value)">
+            <mat-form-field appearance="fill" >
+                <mat-label>Title</mat-label>
+                <input matInput formControlName="title">
+                <mat-error *ngIf="messageForm.controls['title'].hasError('required')">
+                    This field is required
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="fill" >
+                <mat-label>Email</mat-label>
+                <input matInput type="email" formControlName="email">
+                <mat-error *ngIf="messageForm.controls['email'].hasError('required')">
+                    This field is required
+                </mat-error>
+                <mat-error *ngIf="messageForm.controls['email'].hasError('pattern')">
+                    Email invalid
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="fill" id="textarea">
+                <mat-label>Add a comment:</mat-label>
+                <textarea matInput formControlName="text"></textarea>
+                <mat-error *ngIf="messageForm.controls['text'].hasError('required')">
+                    This field is required
+                </mat-error>
+            </mat-form-field>
+            <div fxLayoutAlign="end">
+                <button mat-raised-button [disabled]="messageForm.invalid">Send</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
